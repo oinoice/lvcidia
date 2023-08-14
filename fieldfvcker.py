@@ -2,6 +2,7 @@
 import json
 import subprocess
 import os
+import time
 
 # Get the environment variable LVCIDIA_TOKEN or default to YOUR_TOKEN_HERE
 token = os.environ.get("LVCIDIA_TOKEN", "YOUR_TOKEN_HERE")
@@ -63,7 +64,7 @@ value_hierarchy = [8, 5, 3, 4, 1, 2, 9, 6, 7]
 
 def send_request(endpoint):
     """
-    The function `send_request` sends a HTTP request to an endpoint and returns the response as a JSON
+    Sends a HTTP request to an endpoint and returns the response as a JSON
     object, or None if the request fails.
 
     :param endpoint: The `endpoint` parameter is a string that represents the specific API endpoint or
@@ -75,6 +76,8 @@ def send_request(endpoint):
     command = ["curl"] + HEADERS + [BASE_URL + endpoint]
     result = subprocess.run(command, capture_output=True, text=True)
 
+    time.sleep(0.1)  # Sleep for 100ms
+
     if result.returncode == 0:
         return json.loads(result.stdout)
     else:
@@ -84,7 +87,7 @@ def send_request(endpoint):
 
 def get_value(nft, resource_field):
     """
-    The function `get_value` calculates the value of a given resource field in an NFT based on the
+    Calculates the value of a given resource field in an NFT based on the
     resources it emits.
 
     :param nft: The `nft` parameter is a dictionary that represents a non-fungible token (NFT). It
@@ -102,8 +105,7 @@ def get_value(nft, resource_field):
 
 def best_resource_field_for_nft(nft, resource_fields):
     """
-    The function `best_resource_field_for_nft` finds the resource field with the highest value for a
-    given NFT.
+    Finds the resource field with the highest value for a given NFT.
 
     :param nft: The `nft` parameter represents the non-fungible token (NFT) for which we want to find
     the best resource field
@@ -125,7 +127,7 @@ def best_resource_field_for_nft(nft, resource_fields):
 
 def get_nfts():
     """
-    The function `get_nfts` retrieves the staking progress and earn rate for NFTs.
+    Retrieves the staking progress and earn rate for NFTs.
     :return: the response from the API endpoint "/api/tokens/staking-progress/earn-rate".
     """
     endpoint = "/api/tokens/staking-progress/earn-rate"
@@ -138,7 +140,7 @@ def get_nfts():
 
 def get_resource_fields():
     """
-    The function `get_resource_fields` retrieves resource fields data from multiple endpoints and
+    Retrieves resource fields data from multiple endpoints and
     returns a dictionary containing the data.
     :return: a dictionary called `resource_fields`.
     """
@@ -154,8 +156,7 @@ def get_resource_fields():
 
 def assign_nft_to_best_resource_field():
     """
-    The function `assign_nft_to_best_resource_field()` retrieves NFTs, retrieves resource fields,
-    determines the best resource field for each NFT, and prints the NFT's OpenSea URL and its
+    Retrieves NFTs, retrieves resource fields, determines the best resource field for each NFT, and prints the NFT's OpenSea URL and its
     corresponding best resource field.
     :return: The function does not explicitly return anything. However, it prints the information about
     the NFTs and their assigned resource fields.
@@ -184,6 +185,7 @@ def assign_nft_to_best_resource_field():
     for i, info in enumerate(sorted_nft_info_list):
         print(f"    {i} \t{info[0]} \t{info[1]}-{info[2]}")
     print("\n")
+
 
 if __name__ == "__main__":
     assign_nft_to_best_resource_field()
