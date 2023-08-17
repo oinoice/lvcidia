@@ -16,6 +16,8 @@ Optimize your NFT staking for the best yield with LVCIDIA NFT Yield Optimizer. T
 - **Terminal/Command Line Interface**:
   - **macOS/Linux/Unix**: Default terminal.
   - **Windows**: Command Prompt, PowerShell, or [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/).
+    - NOTE: When installing python on Windows, be sure to select the option to
+      "Add python.exe to PATH".
 - **Python**:
   - **macOS/Linux/Unix**: Typically comes preinstalled.
   - **Windows**: Download and install Python from [python.org](https://www.python.org/downloads/).
