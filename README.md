@@ -7,6 +7,11 @@ Optimize your NFT staking for the best yield with LVCIDIA NFT Yield Optimizer. T
 - Weigh resources based on their value hierarchy.
 - Detailed yield breakdown for each NFT.
 - Batch scripts for convenient execution across different platforms.
+## 🍆 How to Download
+1. Visit the **LVCIDIA NFT Yield Optimizer** GitHub repository (CONGRATS YOU'RE ALREADY HERE).
+2. Look for the green `Code` button.
+3. Click on `Download ZIP`.
+4. Once the ZIP file is downloaded, extract its contents to your desired location on your computer.
 ## 🍆 Prerequisites
 - **Terminal/Command Line Interface**:
   - **macOS/Linux/Unix**: Default terminal.
@@ -83,4 +88,8 @@ RESOURCE EARNING SUMMARY:
 - Tokens might expire or become void over time. If you encounter authorization errors, you may need to retrieve a new token from the browser, as explained in the "Getting Started" section.
 - Always utilize the script responsibly to avoid overwhelming the backend server.
 ## 🍆 Feedback and Support
-For feedback, issues, or any other queries, please contact @andyd_andrea in the LVCIDIA discord using the message: "its a good day to put the top down on the lebaron. don't you think @andyd_andrea?" ...I'll know what it means.
+
+For feedback, issues, or any other queries, please contact @andyd_andrea in the LVCIDIA discord using the message:
+> "its a good day to put the top down on the lebaron. don't you think @andyd_andrea?"  
+
+...I'll know what it means.
