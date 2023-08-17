@@ -22,7 +22,10 @@ Optimize your NFT staking for the best yield with LVCIDIA NFT Yield Optimizer. T
   - **macOS/Linux/Unix**: Typically comes preinstalled.
   - **Windows**: Download and install Python from [python.org](https://www.python.org/downloads/).
 - **LVCIDIA_TOKEN**: (Not a FVCK TOKEN - an authorization token) Essential for fetching NFT staking details. Refer to the "Getting Started" section below for instructions on obtaining and setting this up.
-**Note**: You don't need to manually install any Python packages. The provided setup scripts will automatically set up a virtual environment and install the necessary packages (`requests` and `python-dotenv`) for you.## 🍆 Getting Started
+**Note**: You don't need to manually install any Python packages. The provided
+setup scripts will automatically set up a virtual environment and install the
+necessary packages (`requests` and `python-dotenv`) for you.
+## 🍆 Getting Started
 1. **Obtain the LVCIDIA_TOKEN**:
    - Visit `https://staking.lvcidia.xyz/`.
    - Right-click on the fully loaded page and choose `Inspect` or `Inspect Element` (wording may vary with the browser).
