@@ -35,6 +35,7 @@ necessary packages (`requests` and `python-dotenv`) for you.
    - Click the request, then in the right pane, under the `Headers` section, look for `Authorization`. The value will follow the format `Bearer YOUR_LVCIDIA_TOKEN`. Copy the `YOUR_LVCIDIA_TOKEN` section.
 2. **Save the LVCIDIA_TOKEN**:
    - Run the script once. When prompted, enter your `LVCIDIA_TOKEN` and confirm. This action saves the token to a `.env` file for subsequent uses.
+   - NOTE: The prompt asking for your ``LVCIDIA_TOKEN`` is triggered by the absence of a `.env` file, accordingly if you need to re-enter or update your ``LVCIDIA_TOKEN`` simply delete your ``.env`` file and it will ask for your ``LVCIDIA_TOKEN`` the next time you call the command.
 ## 🍆 Quick Start
 ### For macOS/Linux/Unix users:
 
@@ -90,7 +91,8 @@ RESOURCE EARNING SUMMARY:
 ```
 ## 🍆 Safety Notes
 - Keep your `LVCIDIA_TOKEN` confidential. Refrain from sharing your `.env` file or disclosing your token in public forums.
-- Tokens might expire or become void over time. If you encounter authorization errors, you may need to retrieve a new token from the browser, as explained in the "Getting Started" section.
+- Tokens might expire or become void over time. If you encounter authorization
+  errors, you may need to retrieve a new token from the browser, as explained in the "Getting Started" section. The prompt asking for your ``LVCIDIA_TOKEN`` is triggered by the absence of a `.env` file, accordingly if you need to re-enter or update your ``LVCIDIA_TOKEN`` simply delete your ``.env`` file and it will ask for your ``LVCIDIA_TOKEN`` the next time you call the command.
 - Always utilize the script responsibly to avoid overwhelming the backend server.
 ## 🍆 Feedback and Support
 
