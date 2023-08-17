@@ -1,92 +1,86 @@
-# Resource Field Assignment Script
+# 🍆 LVCIDIA NFT Yield Optimizer
+**Important Update**: The previous version of this tool assigned crystals and avatars to resource fields based on the **resource field emission MATCH COUNT**, weighted by ERA1 PPM cost. The **newly enhanced version** of the script goes a step further; it actually calculates the amount of resources earned at each field and selects the one with the most yield. This significant upgrade ensures you get the best value from your NFT staking.
 
-This script assigns crystals and avatars to resource fields based on resource field emission match count weighted by ERA1 PPM cost. The assignment helps identify the best resource field for each NFT by evaluating the resources it emits.
-
-## Prerequisites
-- Terminal:
+Optimize your NFT staking for the best yield with LVCIDIA NFT Yield Optimizer. This tool is designed to find the highest yielding resource field for your NFTs, considering their unique capabilities and token associations. Beyond just matching resource fields, it evaluates potential earnings across multiple fields, ensuring the optimal choice for your NFTs.
+## 🍆 Features
+- Determine the optimal staking field for given NFT IDs.
+- Weigh resources based on their value hierarchy.
+- Detailed yield breakdown for each NFT.
+- Batch scripts for convenient execution across different platforms.
+## 🍆 Prerequisites
+- **Terminal/Command Line Interface**:
   - **macOS/Linux/Unix**: Default terminal.
-  - **Windows**: Use Command Prompt or PowerShell, or consider using [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/).
-- Python installed:
-  - **macOS/Linux/Unix**: Often comes preinstalled.
+  - **Windows**: Command Prompt, PowerShell, or [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/).
+- **Python**:
+  - **macOS/Linux/Unix**: Typically comes preinstalled.
   - **Windows**: Download and install Python from [python.org](https://www.python.org/downloads/).
-- A token from the staking website. This token can either be embedded directly within the script or set as an environment variable `LVCIDIA_TOKEN`.
+- **LVCIDIA_TOKEN**: (Not a FVCK TOKEN - an authorization token) Essential for fetching NFT staking details. Refer to the "Getting Started" section below for instructions on obtaining and setting this up.
+**Note**: You don't need to manually install any Python packages. The provided setup scripts will automatically set up a virtual environment and install the necessary packages (`requests` and `python-dotenv`) for you.## 🍆 Getting Started
+1. **Obtain the LVCIDIA_TOKEN**:
+   - Visit `https://staking.lvcidia.xyz/`.
+   - Right-click on the fully loaded page and choose `Inspect` or `Inspect Element` (wording may vary with the browser).
+   - Go to the `Network` tab in the developer tools.
+   - Refresh the page or perform another action to trigger a network request.
+   - In the `Network` tab, locate a request with a URL that begins with `https://backend.prd.lvcidia.web3.uken.com/`.
+   - Click the request, then in the right pane, under the `Headers` section, look for `Authorization`. The value will follow the format `Bearer YOUR_LVCIDIA_TOKEN`. Copy the `YOUR_LVCIDIA_TOKEN` section.
+2. **Save the LVCIDIA_TOKEN**:
+   - Run the script once. When prompted, enter your `LVCIDIA_TOKEN` and confirm. This action saves the token to a `.env` file for subsequent uses.
+## 🍆 Quick Start
+### For macOS/Linux/Unix users:
 
-#### Dependencies:
-- Python 3
-- Libraries used: `json`, `subprocess`, and `os`
-
-## Steps
-
-### 1. Obtaining the Token:
-1. Open your preferred browser and navigate to [https://staking.lvcidia.xyz/](https://staking.lvcidia.xyz/).
-2. Log in to the website using your credentials.
-3. Once logged in, right-click anywhere on the page and select "Inspect" or "Inspect Element" to open Developer Tools.
-4. Navigate to the "Network" tab in the Developer Tools panel. You might need to refresh the webpage to see network activity.
-5. Look for a network call named `earn-rate`. It should have a URL starting with `https://backend.prd.lvcidia.web3.uken.com/api/tokens/staking-progress/`.
-6. Click on this `earn-rate` call, and in the right pane, navigate to the "Headers" section.
-7. Scroll down until you see an entry labeled "Authorization". It will look something like:
-   ```
-   Authorization: Bearer YOUR_TOKEN_HERE
-   ```
-8. Copy the `YOUR_TOKEN_HERE` part.
-
-### 2. Setting Up the Script:
-
-1. Download the script and save it to a convenient location on your machine.
-2. Open the script using any text editor.
-3. You have two options to set your token:
-    1. **Directly within the Script:**
-       - Find the line with the default `"YOUR_TOKEN_HERE"` value and replace it with the token you copied in the previous section.
-    2. **Set as an Environment Variable:**
-       - Instead of modifying the script, you can set the `LVCIDIA_TOKEN` environment variable with the value of your token. 
-       - **macOS/Linux/Unix**: Open your terminal and run the following command:
-         ```bash
-         export LVCIDIA_TOKEN=YOUR_TOKEN_HERE
-         ```
-       - **Windows (Command Prompt)**:
-         ```bash
-         set LVCIDIA_TOKEN=YOUR_TOKEN_HERE
-         ```
-       - **Windows (PowerShell)**:
-         ```bash
-         $env:LVCIDIA_TOKEN="YOUR_TOKEN_HERE"
-         ```
-
-4. Save the file and close the text editor.
-
-### 3. Running the Script:
-
-1. Open Terminal/Command Prompt/PowerShell.
-2. Navigate to the directory where you saved the script.
-   - **macOS/Linux/Unix**:
-     ```bash
-     cd /path/to/script/
-     ```
-   - **Windows**:
-     ```bash
-     cd \path\to\script\
-     ```
-3. Make the script executable (macOS/Linux/Unix only):
-   ```bash
-   chmod +x fieldfvcker.py
-   ```
-4. Run the script:
-   - **macOS/Linux/Unix**:
-     ```bash
-     ./fieldfvcker.py
-     ```
-   - **Windows**:
-     ```bash
-     python fieldfvcker.py
-     ```
-
-5. The script will now execute, and you'll see output related to the NFTs and the resource field assignment.
-
-*NOTES:*
-- *Resource field ID# aligns with resource field order of appearance on the staking dashboard*.
-- *Earn rate is disregarded - this might be incorporated later if there's a need*.
-- *Make sure to handle the `LVCIDIA_TOKEN` with care, as it's sensitive data.*
-- *This script assumes you have `curl` available in your command-line interface (commonly preinstalled on macOS/Linux, but Windows users may need to install it separately or use an alternative method).*
-
+1. Navigate to the project directory:
+```bash
+cd /mnt/mag/lab/lvcidia/
 ```
-Remember, these are generalized steps and may need further tailoring depending on specific setups or unique requirements of a project or environment.
+1. Grant execute permissions to the script:
+```bash
+chmod +x fieldfvcker.sh
+```
+1. Run the script, providing NFT IDs for crystals and avatars:
+```bash
+./fieldfvcker.sh --crystals [CRYSTAL_IDS] --avatars [AVATAR_IDS]
+```
+### For Windows users:
+1. Navigate to the project directory using Command Prompt or PowerShell:
+```bash
+cd C:\path\to\directory\lvcidia
+```
+1. Run the batch script, providing NFT IDs for crystals and avatars:
+```bash
+fieldfvcker.bat --crystals [CRYSTAL_IDS] --avatars [AVATAR_IDS]
+```
+> **Note**: These scripts automatically check for a `venv` in the project directory and set it up if it doesn't exist. They will also install necessary dependencies in this virtual environment.
+## 🍆 Example Use and Output
+
+**Command**:
+```
+./fieldfvcker.sh --crystals 2231 91 --avatars 3559
+```
+**Expected Result**:
+```
+HIGHEST YIELDING FIELD:
+
+    #   URL                                                                                     Resource Field
+    -   ---                                                                                     --------------
+    1   https://opensea.io/assets/ethereum/0x10cdcb5a80e888ec9e9154439e86b911f684da7b/3559      7-Intercore
+    2   https://opensea.io/assets/ethereum/0x7afeda4c714e1c0a2a1248332c100924506ac8e6/91        9-Infected
+    3   https://opensea.io/assets/ethereum/0x7afeda4c714e1c0a2a1248332c100924506ac8e6/2231      12-Prism
+
+RESOURCE EARNING SUMMARY:
+
+|---------------------------------------------------------------------------------------------------------------------------|
+| # COLLECTION//NFT# @ FIELD# | tit      | bro     | cer     | chm      | gld      | hel     | hyd      | obs     | sil     |
+|---------------------------------------------------------------------------------------------------------------------------|
+| 01    CRYSTAL//2231 @ 12    |          |         |         | 0.056    |          |         |          |         |         |
+| 02    CRYSTAL//91 @ 09      | 0.014    |         |         | 0.013    |          |         | 0.010    |         |         |
+| 03    AVATAR//3559 @ 07     | 0.006    |         |         |          | 0.007    |         |          |         |         |
+|---------------------------------------------------------------------------------------------------------------------------|
+| TOTAL                       | 0.020    |         |         | 0.069    | 0.007    |         | 0.010    |         |         |
+|---------------------------------------------------------------------------------------------------------------------------|
+```
+## 🍆 Safety Notes
+- Keep your `LVCIDIA_TOKEN` confidential. Refrain from sharing your `.env` file or disclosing your token in public forums.
+- Tokens might expire or become void over time. If you encounter authorization errors, you may need to retrieve a new token from the browser, as explained in the "Getting Started" section.
+- Always utilize the script responsibly to avoid overwhelming the backend server.
+## 🍆 Feedback and Support
+For feedback, issues, or any other queries, please contact @andyd_andrea in the LVCIDIA discord using the message: "its a good day to put the top down on the lebaron. don't you think @andyd_andrea?" ...I'll know what it means.
