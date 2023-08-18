@@ -17,17 +17,21 @@ if not token:
         env_file.write(f"LVCIDIA_TOKEN={token}\n")
 
 # Progress bar related variables
-total_requests = 0  # This will be updated once we know the number of tokens and resource fields
+total_requests = (
+    0  # This will be updated once we know the number of tokens and resource fields
+)
 completed_requests = 0
 
 
 def print_progress_bar():
     bar_length = 50
-    progress = min((completed_requests / total_requests), 1)  # Cap progress at 1 (or 100%)
-    arrow = '#' * int(round(progress * bar_length) - 1) + '>'
-    spaces = ' ' * (bar_length - len(arrow))
+    progress = min(
+        (completed_requests / total_requests), 1
+    )  # Cap progress at 1 (or 100%)
+    arrow = "#" * int(round(progress * bar_length) - 1) + ">"
+    spaces = " " * (bar_length - len(arrow))
 
-    print('\r[{0}] {1}%'.format(arrow + spaces, int(round(progress * 100))), end='')
+    print("\r[{0}] {1}%".format(arrow + spaces, int(round(progress * 100))), end="")
 
 
 # # Get the environment variable LVCIDIA_TOKEN or default to YOUR_TOKEN_HERE
@@ -81,6 +85,7 @@ resource_codes = {
 
 resource_weights = {8: 5, 5: 4, 3: 3, 4: 3, 1: 2, 2: 2, 9: 2, 6: 1, 7: 1}
 value_hierarchy = [8, 5, 3, 4, 1, 2, 9, 6, 7]
+
 
 def fetch_earning_potential(resource_field_id, tokens):
     global completed_requests
@@ -191,20 +196,22 @@ if __name__ == "__main__":
     print("    -   ---" + (" " * 79) + "\t--------------")
     """
     # Instead of directly printing, save the formatted string for printing at the end
-    nft_results = []  
+    nft_results = []
     # Define resource headers (assuming you have these)
     resources = ["tit", "bro", "cer", "chm", "gld", "hel", "hyd", "obs", "sil"]
 
     # This will hold a list of (label, resource_field_id, resource_rates)
     nft_resource_data = []
-    
+
     # The first loop for printing OpenSea URLs and collecting earn rate data
     for nft in tokens:
         best_field, nft_details = best_field_for_nfts([nft])
         resource_field_name = resource_field_labels.get(best_field, "Unknown")
 
         opensea_url = f"https://opensea.io/assets/ethereum/{nft['address']}/{nft['id']}"
-        nft_results.append((opensea_url, f"{best_field}-{resource_field_name}"))  # Note that we store the results as a tuple without the index
+        nft_results.append(
+            (opensea_url, f"{best_field}-{resource_field_name}")
+        )  # Note that we store the results as a tuple without the index
 
         response_data = fetch_earning_potential(best_field, [nft])
         resource_rates = {
@@ -223,7 +230,9 @@ if __name__ == "__main__":
     print("    -   ---" + (" " * 79) + "\t--------------")
 
     # After sorting, we renumber the results.
-    for i, (opensea_url, field) in enumerate(sorted(nft_results, key=lambda x: int(x[1].split('-')[0])), 1):
+    for i, (opensea_url, field) in enumerate(
+        sorted(nft_results, key=lambda x: int(x[1].split("-")[0])), 1
+    ):
         print(f"    {i} \t{opensea_url} \t{field}")
 
     # First column is special - calculate based on header, data rows, and "TOTAL"
