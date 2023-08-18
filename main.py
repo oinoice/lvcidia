@@ -4,6 +4,7 @@ import argparse
 import os
 import dotenv
 
+from config import resource_field_labels, resource_codes, resource_weights, value_hierarchy
 
 dotenv.load_dotenv()  # Load environment variables from .env file
 
@@ -53,38 +54,6 @@ HEADERS = {
     "Sec-Fetch-Site": "cross-site",
     "TE": "trailers",
 }
-
-resource_field_labels = {
-    1: "Release",
-    2: "Tentacula",
-    3: "Mandelbulb",
-    4: "After Life",
-    5: "Galactic Lightfield",
-    6: "Dragon Heart",
-    7: "Intercore",
-    8: "Cybernetic Core",
-    9: "Infected",
-    10: "Temporal Shifter",
-    11: "Baeige",
-    12: "Prism",
-    13: "Chromatic Aberation",
-    14: "Antiphysic",
-}
-
-resource_codes = {
-    1: "tit",
-    2: "bro",
-    3: "cer",
-    4: "chm",
-    5: "gld",
-    6: "hel",
-    7: "hyd",
-    8: "obs",
-    9: "sil",
-}
-
-resource_weights = {8: 5, 5: 4, 3: 3, 4: 3, 1: 2, 2: 2, 9: 2, 6: 1, 7: 1}
-value_hierarchy = [8, 5, 3, 4, 1, 2, 9, 6, 7]
 
 
 def fetch_earning_potential(resource_field_id, tokens):

@@ -89,6 +89,86 @@ RESOURCE EARNING SUMMARY:
 | TOTAL                       | 0.020    |         |         | 0.069    | 0.007    |         | 0.010    |         |         |
 |---------------------------------------------------------------------------------------------------------------------------|
 ```
+
+## 🍆 Explanation for `resource_weights` and `value_hierarchy` 
+
+### 🍆 Purpose
+
+The `resource_weights` and `value_hierarchy` play essential roles in the LVCIDIA NFT Yield Optimizer. They're pivotal in prioritizing various resource fields, ensuring that NFTs are matched to the most lucrative staking opportunities.
+
+1. **`resource_weights`**: Dictates the significance of each resource field. In the `total_earn_rate(data)` function, the code computes a weighted earning rate by associating each resource's `intervalEarnRate` with its defined weight. Fields with elevated weights bear more influence on the total earning rate.
+
+2. **`value_hierarchy`**: This list becomes instrumental when multiple fields present similar earning potential. It offers a systematic approach, ranking which field takes precedence over others. Fields positioned earlier in the list are deemed superior.
+
+### 🍆 Updating
+
+If, as a developer or user, you wish to alter the prominence of specific fields, it's possible through adjustments in these two variables:
+
+#### How to modify `resource_weights`:
+Represented as a dictionary, each key-value pair in `resource_weights` aligns with a resource field's ID and its respective weight. Adjusting a field's weight involves:
+
+1. Identifying the field ID within the dictionary.
+2. Tweaking the connected value to your preferred weight.
+
+NOTE: Weights are all relative to one another (i.e. if you add a 0 to the digits they will result in the same hierarchy). Also, weights have only been tested with integers - I am not sure if it will accept floats (decimals). 
+
+
+Example:
+```python
+resource_weights = {
+    8: 5,  # Obsidian
+    5: 4,  # Gold
+    3: 3,  # Ceramic
+    4: 3,  # Chameleon
+    1: 2,  # Black Titanium
+    2: 2,  # Bronze
+    9: 2,  # Silver
+    7: 1,  # Hydrogen
+    6: 1,  # Helium
+}
+```
+Say you want to prioritize hydrogen as much as Ceramic and Chameleony, you can simple tweek the second number of the hydrogen line as follows:
+
+```python
+    7: 3,  # Hydrogen
+```
+With a new value of 3, the script would rank hydrogen emission with the same value weigh of Ceramic and Chameleon.
+  
+#### How to rearrange `value_hierarchy`:
+The `value_hierarchy` list uses the field ID's index to represent its hierarchical position and is used to settle ties. To shuffle priorities just reorder the field IDs within the list in line with your new hierarchy.
+
+NOTE: This really only matters or will only affect resources with the same value weights in the resource_weights table.
+
+Example:
+```python
+value_hierarchy = [
+    8,  # Obsidian
+    5,  # Gold
+    3,  # Ceramic
+    4,  # Chameleon
+    1,  # Black Titanium
+    2,  # Bronze
+    9,  # Silver
+    7,  # Hydrogen
+    6,  # Helium
+]
+```
+If you to change the priority that gets applied to Black Titanium, Bronze, and Silver (All resource_weight values of 2) just switch up their position:
+ ```python
+value_hierarchy = [
+    8,  # Obsidian
+    5,  # Gold
+    3,  # Ceramic
+    4,  # Chameleon
+    9,  # Silver (New priority)
+    2,  # Bronze (New priority)
+    1,  # Black Titanium (New priority)
+    7,  # Hydrogen
+    6,  # Helium
+]
+```
+
+
 ## 🍆 Safety Notes
 - Keep your `LVCIDIA_TOKEN` confidential. Refrain from sharing your `.env` file or disclosing your token in public forums.
 - Tokens might expire or become void over time. If you encounter authorization
