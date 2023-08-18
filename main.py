@@ -75,8 +75,8 @@ resource_codes = {
     5: "gld",
     6: "hel",
     7: "hyd",
-    8: "sil",
-    9: "obs",
+    8: "obs",
+    9: "sil",
 }
 
 resource_weights = {8: 5, 5: 4, 3: 3, 4: 3, 1: 2, 2: 2, 9: 2, 6: 1, 7: 1}
