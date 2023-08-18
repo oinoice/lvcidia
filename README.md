@@ -90,7 +90,10 @@ RESOURCE EARNING SUMMARY:
 |---------------------------------------------------------------------------------------------------------------------------|
 ```
 
-## 🍆 Explanation for `resource_weights` and `value_hierarchy` 
+## 🍆 Explanation for `resource_weights` and `value_hierarchy` in `config.py`
+
+### 🍆 Location
+Both `resource_weights` and `value_hierarchy` can be located in the `config.py` file within the LVCIDIA NFT Yield Optimizer's main directory. This file serves as the central configuration hub for the tool, ensuring easy adjustments as required.
 
 ### 🍆 Purpose
 
