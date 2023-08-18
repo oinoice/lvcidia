@@ -156,7 +156,7 @@ value_hierarchy = [
     6,  # Helium
 ]
 ```
-If you to change the priority that gets applied to Black Titanium, Bronze, and Silver (All resource_weight values of 2) just switch up their position:
+If you want to change the priority that gets applied to Black Titanium, Bronze, and Silver (All resource_weight values of 2) just switch up their position:
  ```python
 value_hierarchy = [
     8,  # Obsidian
