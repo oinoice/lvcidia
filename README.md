@@ -1,23 +1,40 @@
-# 🍆 LVCIDIA NFT Yield Optimizer
-**Important Update**: The previous version of this tool assigned crystals and avatars to resource fields based on the **resource field emission MATCH COUNT**, weighted by ERA1 PPM cost. The **newly enhanced version** of the script goes a step further; it actually calculates the amount of resources earned at each field and selects the one with the most yield. This significant upgrade ensures you get the best value from your NFT staking.
+# LVCIDIA NFT Yield Optimizer
+## Table of Contents
+- [LVCIDIA NFT Yield Optimizer](#lvcidia-nft-yield-optimizer)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [How to Download](#how-to-download)
+  - [Prerequisites](#prerequisites)
+  - [Getting Started](#getting-started)
+  - [Quick Start](#quick-start)
+    - [For macOS/Linux/Unix users:](#for-macoslinuxunix-users)
+    - [For Windows users:](#for-windows-users)
+  - [Example Use and Output](#example-use-and-output)
+  - [Explanation for `resource_weights` and `value_hierarchy` in `config.py`](#explanation-for-resource_weights-and-value_hierarchy-in-configpy)
+    - [Location](#location)
+    - [Purpose](#purpose)
+    - [Updating](#updating)
+      - [How to modify `resource_weights`:](#how-to-modify-resource_weights)
+      - [How to rearrange `value_hierarchy`:](#how-to-rearrange-value_hierarchy)
+  - [Safety Notes](#safety-notes)
+  - [Feedback and Support](#feedback-and-support)
 
-Optimize your NFT staking for the best yield with LVCIDIA NFT Yield Optimizer. This tool is designed to find the highest yielding resource field for your NFTs, considering their unique capabilities and token associations. Beyond just matching resource fields, it evaluates potential earnings across multiple fields, ensuring the optimal choice for your NFTs.
-## 🍆 Features
+## Features
 - Determine the optimal staking field for given NFT IDs.
 - Weigh resources based on their value hierarchy.
 - Detailed yield breakdown for each NFT.
 - Batch scripts for convenient execution across different platforms.
-## 🍆 How to Download
+## How to Download
 1. Visit the **LVCIDIA NFT Yield Optimizer** GitHub repository (CONGRATS YOU'RE ALREADY HERE).
 2. Look for the green `Code` button.
 3. Click on `Download ZIP`.
 4. Once the ZIP file is downloaded, extract its contents to your desired location on your computer.
-## 🍆 Prerequisites
+## Prerequisites
 - **Terminal/Command Line Interface**:
   - **macOS/Linux/Unix**: Default terminal.
   - **Windows**: Command Prompt, PowerShell, or [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/).
-    - NOTE: When installing python on Windows, be sure to select the option to
-      "Add python.exe to PATH".
+  - ***NOTE***: When installing python on ***Windows***, be sure to select
+    the option to ***"Add python.exe to PATH [X]***".
 - **Python**:
   - **macOS/Linux/Unix**: Typically comes preinstalled.
   - **Windows**: Download and install Python from [python.org](https://www.python.org/downloads/).
@@ -25,7 +42,7 @@ Optimize your NFT staking for the best yield with LVCIDIA NFT Yield Optimizer. T
 **Note**: You don't need to manually install any Python packages. The provided
 setup scripts will automatically set up a virtual environment and install the
 necessary packages (`requests` and `python-dotenv`) for you.
-## 🍆 Getting Started
+## Getting Started
 1. **Obtain the LVCIDIA_TOKEN**:
    - Visit `https://staking.lvcidia.xyz/`.
    - Right-click on the fully loaded page and choose `Inspect` or `Inspect Element` (wording may vary with the browser).
@@ -36,7 +53,7 @@ necessary packages (`requests` and `python-dotenv`) for you.
 2. **Save the LVCIDIA_TOKEN**:
    - Run the script once. When prompted, enter your `LVCIDIA_TOKEN` and confirm. This action saves the token to a `.env` file for subsequent uses.
    - NOTE: The prompt asking for your ``LVCIDIA_TOKEN`` is triggered by the absence of a `.env` file, accordingly if you need to re-enter or update your ``LVCIDIA_TOKEN`` simply delete your ``.env`` file and it will ask for your ``LVCIDIA_TOKEN`` the next time you call the command.
-## 🍆 Quick Start
+## Quick Start
 ### For macOS/Linux/Unix users:
 
 1. Navigate to the project directory:
@@ -61,7 +78,7 @@ cd C:\path\to\directory\lvcidia
 fieldfvcker.bat --crystals [CRYSTAL_IDS] --avatars [AVATAR_IDS]
 ```
 > **Note**: These scripts automatically check for a `venv` in the project directory and set it up if it doesn't exist. They will also install necessary dependencies in this virtual environment.
-## 🍆 Example Use and Output
+## Example Use and Output
 
 **Command**:
 ```
@@ -90,12 +107,12 @@ RESOURCE EARNING SUMMARY:
 |---------------------------------------------------------------------------------------------------------------------------|
 ```
 
-## 🍆 Explanation for `resource_weights` and `value_hierarchy` in `config.py`
+## Explanation for `resource_weights` and `value_hierarchy` in `config.py`
 
-### 🍆 Location
+### Location
 Both `resource_weights` and `value_hierarchy` can be located in the `config.py` file within the LVCIDIA NFT Yield Optimizer's main directory. This file serves as the central configuration hub for the tool, ensuring easy adjustments as required.
 
-### 🍆 Purpose
+### Purpose
 
 The `resource_weights` and `value_hierarchy` play essential roles in the LVCIDIA NFT Yield Optimizer. They're pivotal in prioritizing various resource fields, ensuring that NFTs are matched to the most lucrative staking opportunities.
 
@@ -103,7 +120,7 @@ The `resource_weights` and `value_hierarchy` play essential roles in the LVCIDIA
 
 2. **`value_hierarchy`**: This list becomes instrumental when multiple fields present similar earning potential. It offers a systematic approach, ranking which field takes precedence over others. Fields positioned earlier in the list are deemed superior.
 
-### 🍆 Updating
+### Updating
 
 If, as a developer or user, you wish to alter the prominence of specific fields, it's possible through adjustments in these two variables:
 
@@ -172,12 +189,12 @@ value_hierarchy = [
 ```
 
 
-## 🍆 Safety Notes
+## Safety Notes
 - Keep your `LVCIDIA_TOKEN` confidential. Refrain from sharing your `.env` file or disclosing your token in public forums.
 - Tokens might expire or become void over time. If you encounter authorization
   errors, you may need to retrieve a new token from the browser, as explained in the "Getting Started" section. The prompt asking for your ``LVCIDIA_TOKEN`` is triggered by the absence of a `.env` file, accordingly if you need to re-enter or update your ``LVCIDIA_TOKEN`` simply delete your ``.env`` file and it will ask for your ``LVCIDIA_TOKEN`` the next time you call the command.
 - Always utilize the script responsibly to avoid overwhelming the backend server.
-## 🍆 Feedback and Support
+## Feedback and Support
 
 For feedback, issues, or any other queries, please contact @andyd_andrea in the LVCIDIA discord using the message:
 > "its a good day to put the top down on the lebaron. don't you think @andyd_andrea?"  
