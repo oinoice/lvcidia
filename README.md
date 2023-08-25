@@ -13,9 +13,8 @@
   - [Explanation for `resource_weights` and `value_hierarchy` in `config.py`](#explanation-for-resource_weights-and-value_hierarchy-in-configpy)
     - [Location](#location)
     - [Purpose](#purpose)
-    - [Updating](#updating)
-      - [How to modify `resource_weights`:](#how-to-modify-resource_weights)
-      - [How to rearrange `value_hierarchy`:](#how-to-rearrange-value_hierarchy)
+    - [How to modify `resource_weights`:](#how-to-modify-resource_weights)
+    - [How to rearrange `value_hierarchy`:](#how-to-rearrange-value_hierarchy)
   - [Safety Notes](#safety-notes)
   - [Feedback and Support](#feedback-and-support)
 
@@ -58,7 +57,7 @@ necessary packages (`requests` and `python-dotenv`) for you.
 
 1. Navigate to the project directory:
 ```bash
-cd /mnt/mag/lab/lvcidia/
+cd /path/to/lvcidia/
 ```
 1. Grant execute permissions to the script:
 ```bash
@@ -120,11 +119,8 @@ The `resource_weights` and `value_hierarchy` play essential roles in the LVCIDIA
 
 2. **`value_hierarchy`**: This list becomes instrumental when multiple fields present similar earning potential. It offers a systematic approach, ranking which field takes precedence over others. Fields positioned earlier in the list are deemed superior.
 
-### Updating
 
-If, as a developer or user, you wish to alter the prominence of specific fields, it's possible through adjustments in these two variables:
-
-#### How to modify `resource_weights`:
+### How to modify `resource_weights`:
 Represented as a dictionary, each key-value pair in `resource_weights` aligns with a resource field's ID and its respective weight. Adjusting a field's weight involves:
 
 1. Identifying the field ID within the dictionary.
@@ -154,7 +150,7 @@ Say you want to prioritize hydrogen as much as Ceramic and Chameleony, you can s
 ```
 With a new value of 3, the script would rank hydrogen emission with the same value weigh of Ceramic and Chameleon.
   
-#### How to rearrange `value_hierarchy`:
+### How to rearrange `value_hierarchy`:
 The `value_hierarchy` list uses the field ID's index to represent its hierarchical position and is used to settle ties. To shuffle priorities just reorder the field IDs within the list in line with your new hierarchy.
 
 NOTE: This really only matters or will only affect resources with the same value weights in the resource_weights table.

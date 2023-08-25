@@ -4,7 +4,12 @@ import argparse
 import os
 import dotenv
 
-from config import resource_field_labels, resource_codes, resource_weights, value_hierarchy
+from config import (
+    resource_field_labels,
+    resource_codes,
+    resource_weights,
+    value_hierarchy,
+)
 
 dotenv.load_dotenv()  # Load environment variables from .env file
 
@@ -245,17 +250,18 @@ if __name__ == "__main__":
         row_label = f"{i:02}    {label:<{max_nft_id_length + 9}} @ {field_id:02}"
         row_data = [row_label.ljust(first_col_width)]
         for resource in resources:
-            earn_rate = rates.get(resource, "")
+            earn_rate = rates.get(resource, 0) * 24  # <-- Multiplying by 24 here
             formatted_rate = f"{earn_rate:.3f}" if earn_rate else ""
             row_data.append(formatted_rate.ljust(col_widths[resource]))
-            if earn_rate:
-                total_resources[resource] += earn_rate
+            total_resources[resource] += rates.get(resource, 0)
         print("| " + " | ".join(row_data) + " |")
 
     print(separator_line)
     total_row = ["TOTAL".ljust(first_col_width)]
     for resource in resources:
-        earn_rate = total_resources.get(resource, 0)
+        earn_rate = (
+            total_resources.get(resource, 0) * 24
+        )  # <-- Multiplying the TOTAL by 24 here
         formatted_rate = f"{earn_rate:.3f}" if earn_rate else ""
         total_row.append(formatted_rate.ljust(col_widths[resource]))
     print("| " + " | ".join(total_row) + " |")
