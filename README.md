@@ -72,7 +72,7 @@ chmod +x fieldfvcker.sh
 ```bash
 cd C:\path\to\directory\lvcidia
 ```
-1. Run the batch script, providing NFT IDs for crystals and avatars:
+1. Run the batch script, providing NFT IDs for crystals and avatars (separated by a single space):
 ```bash
 fieldfvcker.bat --crystals [CRYSTAL_IDS] --avatars [AVATAR_IDS]
 ```
@@ -113,12 +113,11 @@ Both `resource_weights` and `value_hierarchy` can be located in the `config.py` 
 
 ### Purpose
 
-The `resource_weights` and `value_hierarchy` play essential roles in the LVCIDIA NFT Yield Optimizer. They're pivotal in prioritizing various resource fields, ensuring that NFTs are matched to the most lucrative staking opportunities.
+The `resource_weights` and `value_hierarchy` play important roles in the LVCIDIA NFT Yield Optimizer.
 
 1. **`resource_weights`**: Dictates the significance of each resource field. In the `total_earn_rate(data)` function, the code computes a weighted earning rate by associating each resource's `intervalEarnRate` with its defined weight. Fields with elevated weights bear more influence on the total earning rate.
 
-2. **`value_hierarchy`**: This list becomes instrumental when multiple fields present similar earning potential. It offers a systematic approach, ranking which field takes precedence over others. Fields positioned earlier in the list are deemed superior.
-
+2. **`value_hierarchy`**: This list is really only important when there are resources that share the same weight. This list dictates which resource takes precedence over  others (with the same weight). Fields positioned earlier in the list are deemed superior.
 
 ### How to modify `resource_weights`:
 Represented as a dictionary, each key-value pair in `resource_weights` aligns with a resource field's ID and its respective weight. Adjusting a field's weight involves:
