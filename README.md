@@ -122,7 +122,7 @@ The `resource_weights` and `value_hierarchy` play important roles in the LVCIDIA
 ### How to modify `resource_weights`:
 Represented as a dictionary, each key-value pair in `resource_weights` aligns with a resource field's ID and its respective weight. Adjusting a field's weight involves:
 
-1. Identifying the field ID within the dictionary.
+1. Identifying the resource ID within the dictionary.
 2. Tweaking the connected value to your preferred weight.
 
 NOTE: Weights are all relative to one another (i.e. if you add a 0 to the digits they will result in the same hierarchy). Also, weights have only been tested with integers - I am not sure if it will accept floats (decimals). 
@@ -142,7 +142,7 @@ resource_weights = {
     6: 1,  # Helium
 }
 ```
-Say you want to prioritize hydrogen as much as Ceramic and Chameleony, you can simple tweek the second number of the hydrogen line as follows:
+Say you want to prioritize hydrogen as much as Ceramic and Chameleon, you can simply tweak the second number of the hydrogen line as follows:
 
 ```python
     7: 3,  # Hydrogen

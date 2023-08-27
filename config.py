@@ -25,8 +25,8 @@ value_hierarchy = [
     3,  # Ceramic
     4,  # Chameleon
     1,  # Black Titanium
-    2,  # Bronze
     9,  # Silver
+    2,  # Bronze
     7,  # Hydrogen
     6,  # Helium
 ]
