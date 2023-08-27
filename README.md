@@ -63,7 +63,7 @@ cd /path/to/lvcidia/
 ```bash
 chmod +x fieldfvcker.sh
 ```
-1. Run the script, providing NFT IDs for crystals and avatars:
+1. Run the script, providing NFT IDs for crystals and avatars (separated by a single space):
 ```bash
 ./fieldfvcker.sh --crystals [CRYSTAL_IDS] --avatars [AVATAR_IDS]
 ```
